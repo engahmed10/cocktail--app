@@ -1,6 +1,7 @@
 import React, {Component}  from 'react'
 
 import SearchCocktail from './search'
+import Sort from './sort'
 
 
 export default class Cocktail extends Component {
@@ -21,6 +22,18 @@ export default class Cocktail extends Component {
          )
    }
 
+   handleSort=(e)=>{
+       
+     let sorted=this.state.drinks.sort((a,b)=>{
+       
+               if(a.strDrink > b.strDrink){return 1}
+               if(a.strDrink < b.strDrink){ return -1}
+               if(a.strDrink == b.strDrink){return 0}
+     })
+
+     this.setState({drinks:sorted})
+
+   }
 
   render(){
 
@@ -28,6 +41,7 @@ export default class Cocktail extends Component {
     
     <div>
     <SearchCocktail cokctails={this.fetchCocktail} />
+    <button  onClick={(e)=>this.handleSort(e)}>Sort</button>
 
       <div>{this.state.drinks.map((drink,index)=>
          <div class='cocktail-card'>
