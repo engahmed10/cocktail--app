@@ -38,7 +38,7 @@
 }
 
 
-.cocktail-card{
+.cocktail-card:not(.button){
   display: grid;
 
   border: 2px solid red;
@@ -48,13 +48,15 @@
 
 .instruct{
    float: left;
+   font-size: small;
 }
 
 .title{
-
+   font-size:larger ;
 
 }
 .cata{
+  font-size:large ;
 
 
 }
